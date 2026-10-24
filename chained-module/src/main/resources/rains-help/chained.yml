@@ -15,7 +15,7 @@ sections:
   - question: What is a chained run?
     title: The idea
     text: |
-      Two players are <b>chained</b> together and race against a clock — by default to {setting:chained:advancement-key}. Stray too far from each other and an invisible wall stops you. Nobody gets hurt, nothing pulls you back: the step is simply refused.
+      Two players are <b>chained</b> together and race against the clock for one advancement — here <white>{setting:chained:advancement-key|name}</white>. Stray too far from each other and an invisible wall stops you. Nobody gets hurt, nothing pulls you back: the step is simply refused.
   - question: How do I see my chain?
     title: Status
     text: |
@@ -38,7 +38,7 @@ sections:
   - question: How does a run end?
     title: The finish
     text: |
-      {if:chained:end-condition == advancement}It ends when you earn <b>{setting:chained:advancement-key}</b> — by default killing the ender dragon.{/if}{if:chained:end-condition == death && chained:death-policy == any}It ends on a death: the <b>first</b> of you to die ends it for both (a hardcore race).{/if}{if:chained:end-condition == death && chained:death-policy == all}It ends on a death, but only once <b>both</b> of you have died (co-op).{/if}{if:chained:end-condition == manual}Nothing ends it automatically — one of you types {cmd:/chain stop}.{/if}
+      {if:chained:end-condition == advancement}It ends when you earn the advancement <b>{setting:chained:advancement-key|name}</b>.{/if}{if:chained:end-condition == death && chained:death-policy == any}It ends on a death: the <b>first</b> of you to die ends it for both (a hardcore race).{/if}{if:chained:end-condition == death && chained:death-policy == all}It ends on a death, but only once <b>both</b> of you have died (co-op).{/if}{if:chained:end-condition == manual}Nothing ends it automatically — one of you types {cmd:/chain stop}.{/if}
       If the server shuts down mid-run, the run is ended cleanly.
   - question: Is the map reset for each try?
     title: Fresh maps
