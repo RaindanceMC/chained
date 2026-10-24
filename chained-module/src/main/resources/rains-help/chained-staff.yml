@@ -1,0 +1,35 @@
+id: chained-staff
+title: Chained setup (staff)
+summary: "Pairing and unpairing players, the admin menu, and resetting the map."
+intro: |
+  Somebody has to tie them together. Might as well be you.
+icon: LEAD
+category: Staff
+order: 31
+module: chained
+permission: rainschained.chain.admin
+aliases: [chain-admin, pairing]
+keywords: [pair, unpair, reset, seed, admin, world]
+related: [chained]
+sections:
+  - question: How do I chain two players?
+    title: Pairing
+    text: |
+      {cmd:/chain pair [player1] [player2] [max-distance]} — both must be online, each must be a single player (no selectors that match several). Without a distance the default of {setting:chained:max-distance|count} blocks applies. A player already in a pair is moved out of it.
+  - question: How do I separate them?
+    title: Unpairing
+    text: |
+      {cmd:/chain unpair [player]} — works for offline players too, ends a running run first, and removes the pair.
+  - question: Is there a menu?
+    title: The admin menu
+    text: |
+      {run:/chain admin} opens it: pair two players, start or stop <i>your own</i> pair's run, and reset the map (with a confirmation, because it deserves one).
+  - question: How do I reset the map?
+    title: Resetting
+    text: |
+      {cmd:/chain reset seed [number|random]} throws the world <b>{setting:chained:world-name}</b> away and makes it again; everybody in it is moved out first. Seeds can be a number, <b>random</b>, <b>same</b>, or a word hashed the way vanilla does. Plain {cmd:/chain reset} uses the settings' seed policy ({setting:chained:seed-choice}). If the world is not loaded, nothing happens and you are told.
+      {if:chained:reset-on-start}Starting a run resets the world automatically, too.{else}Starting a run does not reset the world — you do that yourself.{/if}
+  - question: What can I change in the settings?
+    title: Settings
+    text: |
+      In {run:/settings}: the default distance, the warning wait, what ends a run ({setting:chained:end-condition}), the advancement to race for, whose death ends it ({setting:chained:death-policy}), reset on start, the world and the seed policy.

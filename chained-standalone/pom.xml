@@ -36,7 +36,8 @@
           into Core's seed history, and /chain reset seed takes "same" and words as well as numbers.
           Needs RainsCore 1.36.0.
              1.4.0: Paper 26.3 natively (paper-api 26.3, api-version 26.3); no longer loads on 26.2. -->
-        <plugin.version>1.4.0</plugin.version>
+        <!-- 1.5.0: /help guide — the chained speedrun and its staff setup (RainsCore 2.4). -->
+        <plugin.version>1.5.0</plugin.version>
     </properties>
 
     <dependencies>

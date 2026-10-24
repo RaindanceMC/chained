@@ -1,0 +1,47 @@
+id: chained
+title: Chained speedrun
+summary: Two players tied together by an invisible wall, racing a shared clock — how it works and how to start.
+intro: |
+  Two players, one invisible chain, and a clock that does not care whether you like each other. I wish you the best of luck. You will need it.
+icon: IRON_CHAIN
+category: Games
+order: 30
+module: chained
+aliases: [chain, chained, chainedtogether, speedrun-chained, pair, partner]
+keywords: [speedrun, clock, timer, wall, distance, duo, coop, race]
+commands: [chain]
+related: [chained-staff]
+sections:
+  - question: What is a chained run?
+    title: The idea
+    text: |
+      Two players are <b>chained</b> together and race against a clock — by default to {setting:chained:advancement-key}. Stray too far from each other and an invisible wall stops you. Nobody gets hurt, nothing pulls you back: the step is simply refused.
+  - question: How do I see my chain?
+    title: Status
+    text: |
+      {run:/chain} (or {run:/chain status}) opens a page showing who you are chained to, how far apart you may go, and whether a run is going — with the elapsed time. If it says you are not chained, a staff member has to pair you first.
+  - question: How far can we go apart?
+    title: The wall
+    text: |
+      Your pair has its own limit — {setting:chained:max-distance|count} blocks unless staff chose another. Only the <b>flat</b> distance counts, ignoring height: jumping, climbing or digging straight down is not "separating". Boats, horses and other rides are held at the wall too.
+      Once you are over the limit (say staff shortened it mid-run) you can always walk <b>back</b> towards each other; only a step that makes it worse is refused.
+      {if:chained:warning-cooldown-seconds > 0}The "you are chained" warning is repeated at most every {setting:chained:warning-cooldown-seconds|seconds}, so bumping into the wall does not flood your chat.{/if}
+  - question: How do we start and stop?
+    title: Start and stop
+    text: |
+      Whoever is in the pair types {run:/chain start} — the clock starts and a shared boss bar shows the time for both of you. {run:/chain stop} ends the run early; the chains stay on. You cannot start while a run is already going or if you have no pair.
+      While a run is on, the wall only counts when both of you are online: if your partner is offline, nothing is enforced against you.
+  - question: What happens when both of us log off?
+    title: The clock when offline
+    text: |
+      The clock pauses (the bar says "paused") while neither of you is online, so a night's sleep does not count as a record. It resumes when one of you returns.
+  - question: How does a run end?
+    title: The finish
+    text: |
+      {if:chained:end-condition == advancement}It ends when you earn <b>{setting:chained:advancement-key}</b> — by default killing the ender dragon.{/if}{if:chained:end-condition == death && chained:death-policy == any}It ends on a death: the <b>first</b> of you to die ends it for both (a hardcore race).{/if}{if:chained:end-condition == death && chained:death-policy == all}It ends on a death, but only once <b>both</b> of you have died (co-op).{/if}{if:chained:end-condition == manual}Nothing ends it automatically — one of you types {cmd:/chain stop}.{/if}
+      If the server shuts down mid-run, the run is ended cleanly.
+  - question: Is the map reset for each try?
+    title: Fresh maps
+    when: chained:reset-on-start
+    text: |
+      Yes: starting a run throws the world <b>{setting:chained:world-name}</b> away and makes it again. {if:chained:seed-choice == fixed}Every attempt gets the same map — seed {setting:chained:seed-value}.{else}Each attempt gets a brand new random map.{/if}
