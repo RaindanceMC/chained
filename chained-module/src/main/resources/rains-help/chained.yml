@@ -1,8 +1,8 @@
 id: chained
 title: Chained speedrun
-summary: Two players tied together by an invisible wall, racing a shared clock — how it works and how to start.
+summary: Two players tied together by an invisible wall, racing a shared clock. How it works and how to start.
 intro: |
-  Two players, one invisible chain, and a clock that does not care whether you like each other. I wish you the best of luck. You will need it.
+  Two players, one invisible chain and a shared clock. Stay close to your partner and finish together.
 icon: IRON_CHAIN
 category: Games
 order: 30
@@ -15,33 +15,33 @@ sections:
   - question: What is a chained run?
     title: The idea
     text: |
-      Two players are <b>chained</b> together and race against the clock for one advancement — here <white>{setting:chained:advancement-key|name}</white>. Stray too far from each other and an invisible wall stops you. Nobody gets hurt, nothing pulls you back: the step is simply refused.
+      Two players are <b>chained</b> together and race against the clock for one advancement, here <white>{setting:chained:advancement-key|name}</white>. Stray too far from each other and an invisible wall stops you. You take no damage and nothing pulls you back. The step is refused.
   - question: How do I see my chain?
     title: Status
     text: |
-      {run:/chain} (or {run:/chain status}) opens a page showing who you are chained to, how far apart you may go, and whether a run is going — with the elapsed time. If it says you are not chained, a staff member has to pair you first.
+      {run:/chain} (or {run:/chain status}) opens a page showing who you are chained to, how far apart you may go, and whether a run is going, with the elapsed time. If it says you are not chained, a staff member has to pair you first.
   - question: How far can we go apart?
     title: The wall
     text: |
-      Your pair has its own limit — {setting:chained:max-distance|count} blocks unless staff chose another. Only the <b>flat</b> distance counts, ignoring height: jumping, climbing or digging straight down is not "separating". Boats, horses and other rides are held at the wall too.
-      Once you are over the limit (say staff shortened it mid-run) you can always walk <b>back</b> towards each other; only a step that makes it worse is refused.
-      {if:chained:warning-cooldown-seconds > 0}The "you are chained" warning is repeated at most every {setting:chained:warning-cooldown-seconds|seconds}, so bumping into the wall does not flood your chat.{/if}
+      Your pair has its own limit: {setting:chained:max-distance|count} blocks unless staff chose another. Only the <b>flat</b> distance counts and height is ignored, so jumping, climbing or digging straight down is fine. Boats, horses and other rides are held at the wall too.
+      If you are over the limit (for example staff shortened it mid-run), you can always walk <b>back</b> towards each other. Only a step that makes it worse is refused.
+      {if:chained:warning-cooldown-seconds > 0}The "you are chained" warning is repeated at most every {setting:chained:warning-cooldown-seconds|seconds}, so your chat does not fill up when you bump into the wall.{/if}
   - question: How do we start and stop?
     title: Start and stop
     text: |
-      Whoever is in the pair types {run:/chain start} — the clock starts and a shared boss bar shows the time for both of you. {run:/chain stop} ends the run early; the chains stay on. You cannot start while a run is already going or if you have no pair.
-      While a run is on, the wall only counts when both of you are online: if your partner is offline, nothing is enforced against you.
+      Whoever is in the pair types {run:/chain start}. The clock starts and a shared boss bar shows the time for both of you. {run:/chain stop} ends the run early and the chains stay on. You cannot start while a run is already going or if you have no pair.
+      While a run is on, the wall only counts when both of you are online. If your partner is offline, the wall does not hold you.
   - question: What happens when both of us log off?
     title: The clock when offline
     text: |
-      The clock pauses (the bar says "paused") while neither of you is online, so a night's sleep does not count as a record. It resumes when one of you returns.
+      The clock pauses (the bar says "paused") while neither of you is online. It resumes when one of you returns.
   - question: How does a run end?
     title: The finish
     text: |
-      {if:chained:end-condition == advancement}It ends when you earn the advancement <b>{setting:chained:advancement-key|name}</b>.{/if}{if:chained:end-condition == death && chained:death-policy == any}It ends on a death: the <b>first</b> of you to die ends it for both (a hardcore race).{/if}{if:chained:end-condition == death && chained:death-policy == all}It ends on a death, but only once <b>both</b> of you have died (co-op).{/if}{if:chained:end-condition == manual}Nothing ends it automatically — one of you types {cmd:/chain stop}.{/if}
-      If the server shuts down mid-run, the run is ended cleanly.
+      {if:chained:end-condition == advancement}It ends when you earn the advancement <b>{setting:chained:advancement-key|name}</b>.{/if}{if:chained:end-condition == death && chained:death-policy == any}It ends on a death. The <b>first</b> of you to die ends it for both (hardcore).{/if}{if:chained:end-condition == death && chained:death-policy == all}It ends on a death, once <b>both</b> of you have died (co-op).{/if}{if:chained:end-condition == manual}Nothing ends it automatically. One of you types {cmd:/chain stop}.{/if}
+      If the server shuts down mid-run, the run ends.
   - question: Is the map reset for each try?
     title: Fresh maps
     when: chained:reset-on-start
     text: |
-      Yes: starting a run throws the world <b>{setting:chained:world-name}</b> away and makes it again. {if:chained:seed-choice == fixed}Every attempt gets the same map — seed {setting:chained:seed-value}.{else}Each attempt gets a brand new random map.{/if}
+      Yes. Starting a run throws the world <b>{setting:chained:world-name}</b> away and makes it again. {if:chained:seed-choice == fixed}Every attempt gets the same map (seed {setting:chained:seed-value}).{else}Each attempt gets a new random map.{/if}

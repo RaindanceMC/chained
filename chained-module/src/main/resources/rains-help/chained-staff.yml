@@ -2,7 +2,7 @@ id: chained-staff
 title: Chained setup (staff)
 summary: "Pairing and unpairing players, the admin menu, and resetting the map."
 intro: |
-  Somebody has to tie them together. Might as well be you.
+  Here is how to chain players together, separate them and reset the map.
 icon: LEAD
 category: Staff
 order: 31
@@ -15,20 +15,20 @@ sections:
   - question: How do I chain two players?
     title: Pairing
     text: |
-      {cmd:/chain pair [player1] [player2] [max-distance]} — both must be online, each must be a single player (no selectors that match several). Without a distance the default of {setting:chained:max-distance|count} blocks applies. A player already in a pair is moved out of it.
+      {cmd:/chain pair [player1] [player2] [max-distance]}. Both must be online, and each must be a single player (no selectors that match several). Without a distance the default of {setting:chained:max-distance|count} blocks applies. A player already in a pair is moved out of it.
   - question: How do I separate them?
     title: Unpairing
     text: |
-      {cmd:/chain unpair [player]} — works for offline players too, ends a running run first, and removes the pair.
+      {cmd:/chain unpair [player]} works for offline players too. It ends a running run first, then removes the pair.
   - question: Is there a menu?
     title: The admin menu
     text: |
-      {run:/chain admin} opens it: pair two players, start or stop <i>your own</i> pair's run, and reset the map (with a confirmation, because it deserves one).
+      {run:/chain admin} opens it: pair two players, start or stop <i>your own</i> pair's run, and reset the map (you must confirm first).
   - question: How do I reset the map?
     title: Resetting
     text: |
-      {cmd:/chain reset seed [number|random]} throws the world <b>{setting:chained:world-name}</b> away and makes it again; everybody in it is moved out first. Seeds can be a number, <b>random</b>, <b>same</b>, or a word hashed the way vanilla does. Plain {cmd:/chain reset} uses the settings' seed policy ({setting:chained:seed-choice}). If the world is not loaded, nothing happens and you are told.
-      {if:chained:reset-on-start}Starting a run resets the world automatically, too.{else}Starting a run does not reset the world — you do that yourself.{/if}
+      {cmd:/chain reset seed [number|random]} throws the world <b>{setting:chained:world-name}</b> away and makes it again; everybody in it is moved out first. A seed can be a number, <b>random</b>, <b>same</b>, or a word hashed the way vanilla does. Plain {cmd:/chain reset} uses the settings' seed policy ({setting:chained:seed-choice}). If the world is not loaded, nothing happens and you are told so.
+      {if:chained:reset-on-start}Starting a run resets the world automatically too.{else}Starting a run does not reset the world. Reset it yourself.{/if}
   - question: What can I change in the settings?
     title: Settings
     text: |
