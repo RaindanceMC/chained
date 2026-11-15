@@ -49,8 +49,8 @@ import java.util.List;
 public final class ChainedModule implements FlexModule {
 
     private static final ModuleInfo INFO = ModuleInfo.of("chained", "Chained", "1.5.0")
-            .describedAs("Two players, mechanically chained together — separating too far is "
-                    + "simply blocked, and a speedrun timer runs underneath the run")
+            .describedAs("Chains two players together. Moving too far apart is "
+                    + "blocked, and a speedrun timer runs")
             .by("Raindancer118");
 
     private LogChannel log;

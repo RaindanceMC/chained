@@ -32,13 +32,13 @@ public final class ChainedCommands {
                 ModuleCommand.of("chain",
                                 "Manage and watch a chained-together speedrun",
                                 new ChainCommand(ChainedCommands::require))
-                        .taking("pair <player1> <player2> [max-distance] — chain two players",
-                                "unpair <player> — dissolve their pair",
-                                "start — begin the run for your pair",
-                                "stop — end it early",
-                                "reset [seed <value|random>] — throw the map away and make it again",
-                                "status — how far apart you may go, and the clock",
-                                "admin — the same, as a menu")
+                        .taking("pair <player1> <player2> [max-distance]: chain two players",
+                                "unpair <player>: dissolve their pair",
+                                "start: start the run for your pair",
+                                "stop: end it early",
+                                "reset [seed <value|random>]: throw the map away and make it again",
+                                "status: how far apart you may go, and the clock",
+                                "admin: the same, as a menu")
                         .needing("rainschained.chain.use"));
     }
 

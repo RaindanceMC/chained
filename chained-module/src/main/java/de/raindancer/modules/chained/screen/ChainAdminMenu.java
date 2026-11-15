@@ -32,7 +32,7 @@ public final class ChainAdminMenu extends Menu implements IChainedScreen {
 
     @Override
     protected Component title() {
-        return MINI.deserialize("<dark_gray>Chained — admin");
+        return MINI.deserialize("<dark_gray>Chained: admin");
     }
 
     @Override

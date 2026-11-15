@@ -218,7 +218,7 @@ public final class ChainService implements IChainedService {
 
     private static BarStyle styleFor(SpeedrunSession session) {
         boolean paused = session.state() == SpeedrunState.PAUSED;
-        String text = (paused ? "Chained (paused) — " : "Chained — ") + Times.brief(session.elapsed());
+        String text = (paused ? "Chained (paused): " : "Chained: ") + Times.brief(session.elapsed());
         return BarStyle.of(Component.text(text, NamedTextColor.WHITE))
                 .progress(1f)
                 .colour(paused ? BossBar.Color.YELLOW : BossBar.Color.PURPLE);

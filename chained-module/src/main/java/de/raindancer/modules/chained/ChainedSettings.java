@@ -28,8 +28,8 @@ import org.bukkit.Material;
 public record ChainedSettings(
 
         @In("chained/limits") @Title("Max distance apart") @Range(min = 1, max = 10_000)
-        @Describe("Blocks. Moving further apart than this is simply blocked, like an invisible "
-                + "wall — no damage, no teleport-pull. The move is refused and that is all.")
+        @Describe("Blocks. Moving further apart than this is blocked, like an invisible "
+                + "wall. There is no damage and no teleport-pull, the move is refused.")
         @Key("max-distance")
         int maxDistanceBlocks,
 
@@ -47,7 +47,7 @@ public record ChainedSettings(
         int warningCooldownSeconds,
 
         @In("chained/ending") @Title("What ends a run")
-        @Describe("An advancement, a death, or nothing automatic — ended by /chain stop instead.")
+        @Describe("An advancement, a death, or nothing automatic (ended by /chain stop).")
         @Key("end-condition")
         EndCondition endCondition,
 
